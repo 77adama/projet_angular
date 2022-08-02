@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section class="main-content">
+    <div class="col-sm-6 col-md-6 col-lg-6" >
+      <div class="food-card food-card--vertical">
+          <div class="food-card_img">
+              <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" alt="">
+              <a href="#!"><i class="fa fa-heart"></i></a>
+          </div>
+          <div class="food-card_content">
+              <div class="food-card_title-section">
+                  <a href="#!" class="food-card_title">{{menus.nom}}</a>
+                  <a href="#!" class="food-card_author">prix inutaire:{{menus.prix}}</a>
+              </div>
+              <div class="food-card_bottom-section">
+                  <div class="space-between">
+                      <div>
+                          <span class="fa fa-fire"></span> prix:{{menus.prix * quantity}}
+                      </div>
+                      <div class="pull-right">
+                          <span class="badge badge-success"></span>
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="space-between">
+                      <div class="food-card_price">
+                          <span>5.99$</span>
+                      </div>
+                      <div class="food-card_order-count">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                              </div>
+                              <input #t
+                              min="1"
+                              type="number"
+                               class="form-control input-manulator" 
+                               placeholder="" 
+                               aria-label="Example text with button addon" 
+                               aria-describedby="button-addon1" 
+                               value="{{quantity}}" (click)="mmm(t)">
+                              <div class="input-group-append">
+                                <h1>ajouter au panier</h1>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="fritte">   <app-fritte *ngFor="let fritt of fritte" [frittee]="fritt"></app-fritte> </div>
+    <div class="boisson"><app-boisson *ngFor="let boiss of boisson" [boissonn]="boiss"></app-boisson></div>
+    </div>
+   
+    </section>
+</body>
+</html>
+
+

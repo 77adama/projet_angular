@@ -1,0 +1,10 @@
+<nav mat-tab-nav-bar>
+<!-- *  <img src="assets/logo.png">* [routerLink]="link.link"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive"* -->
+        <img src="assets/logo.png">
+        <a mat-tab-link *ngFor="let link of navLinks" >{{link.label}}</a>
+       
+
+      </nav>
+  

@@ -1,0 +1,62 @@
+
+
+{ 
+"catalogues":[
+  {
+    "menus":[ 
+      {
+        "id":1,
+        "nom":"menu",
+        "image": "https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2020.2F01.2F29.2Fe4b42e7a-e15d-47f9-8638-55ed8aa2fd0c.2Ejpeg/1200x630/background-color/ffffff/focus-point/2286%2C1225/quality/70/cr/wqkgUGl4YWJheSAvIENBUElUQUw%3D/des-vendeurs-dun-fast-food-arretes-apres-avoir-refuse-de-donner-gratuitement-des-burgers-a-des-policiers-1406468.jpg",
+      "burger":[
+          {
+           " id":1,
+            "nom":"burger",
+            "image": "gf",
+            "prix":372
+          }
+      ],
+      "boisson":[
+        {
+          "id":1,
+          "nom":"boisson",
+          "image":"u",
+          "prix":372
+        }
+      ],
+      "fritte":[
+        {
+          "id":1,
+          "nom":"fritte",
+          "image":"uih",
+          "prix":372
+        }
+      ],
+      "prix": 138
+      }
+      
+    ],
+    "burgers":[
+        {
+            "id":2,
+            "nom":"burger simple",
+            "image": "https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=",
+            "prix":372
+        },
+        {
+          "id":2,
+          "nom":"burger",
+          "image": "https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=",
+          "prix":372
+      },
+      {
+        "id":2,
+        "nom":"burger",
+        "image": "https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=",
+        "prix":372
+    }
+    ]
+   
+  }
+]
+}

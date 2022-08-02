@@ -1,0 +1,126 @@
+<!-- * * * * * * * * * * * * * * * * * * 
+        <div class="food-card food-card--vertical">
+            <div class="food-card_img">
+                <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" alt="">
+                <a href="#!"><i class="fa fa-heart"></i></a>
+            </div>
+            <div class="food-card_content">
+                <div class="food-card_title-section">
+                    <a href="#!" class="food-card_title">{{product.nom}}</a>
+                    <a href="#!" class="food-card_author">prix:{{product.prix}}Fr</a>
+                </div>
+                <div class="food-card_bottom-section">
+                    <div class="space-between">
+                        <div>
+                            <span class="fa fa-fire"></span> prix:{{product.prix * quantity}}Fr
+                        </div>
+                        <div class="pull-right">
+                            <span class="badge badge-success"><svg (click)="removeFromCart(product)" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                              </svg></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="space-between">
+                        <div class="food-card_price">
+                            <span>{{product.nom}}</span>
+                        </div>
+                        <div class="food-card_order-count">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <form action=""> 
+                                <input #t
+                                
+                                 min="1" 
+                                type="number" 
+                                class="form-control input-manulator" 
+                                placeholder="" 
+                                aria-label="Example text with button addon" 
+                                aria-describedby="button-addon1" 
+                                value="{{quantity}}" (click)="mmm(t)">  
+                                <div class="input-group-append">
+                                    <button  class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="food-card_title-section">
+       <h3 class="bg-succes">prix:{{product.prix * quantity}}Fr</h3>
+       <a href="#!" class="food-card_author">gggg</a>
+        </div>
+   
+    <span class="text-white bg-primary">{{som}}</span>
+   
+    * * * * * * * * * * * * * -->
+
+    <div class="food-card food-card--vertical">
+            <div class="food-card_img">
+                <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" alt="">
+                <a href="#!"><i class="fa fa-heart"></i></a>
+            </div>
+            <div class="food-card_content">
+                <div class="food-card_title-section">
+                    <a href="#!" class="food-card_title">{{panier.nom}}</a>
+                    <a href="#!" class="food-card_author">prix:{{panier.prix}}Fr</a>
+                </div>
+                <div class="food-card_bottom-section">
+                    <div class="space-between">
+                        <div>
+                            <span class="fa fa-fire">{{panier.prix * quantite}}Fr</span>
+                        </div>
+                        <div class="pull-right">
+                            <span class="badge badge-success"><svg (click)="removeFromCart(product)" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                              </svg></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="space-between">
+                        <div class="food-card_price">
+                            <span>{{panier.nom}}</span>
+                        </div>
+                        <div class="food-card_order-count">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <form action=""> 
+                                <input #t
+                                name="quantity"
+                                 min="1" 
+                                 id="quantity"
+                                 (change)="getQuantity(product,quantity.value);getPrixtotal()"
+                                 #quantity
+                                type="number" 
+                                class="form-control input-manulator" 
+                                placeholder="" 
+                                aria-label="Example text with button addon" 
+                                aria-describedby="button-addon1" 
+                                value="{{quantite}}" (click)="mmm(t)"   >  
+                                <div class="input-group-append">
+                                    <button  class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="food-card_title-section">
+           
+            
+        </div>
+        
+        <span class="text-white"><h1> prix total:{{getPrixtotal()}}Frc</h1></span>
+        

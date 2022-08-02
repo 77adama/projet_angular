@@ -1,0 +1,56 @@
+
+        
+        <!-- * * 
+            <div class="containe">
+    <div class="for"  *ngFor="let item of catMenu;let j=index" >
+            
+            
+            
+            
+            
+            <div class="bg-success ">{{item.nom}}</div>
+        <div>{{item.prix}}</div>  *ngFor="let item of burger"
+        <img class="w-25 " src="{{item.image}}"> 
+        d-flex flex-row bg-success 
+        
+        
+        
+        
+         <button>Ajoutez au panier</button>
+        <img class="" (click)="toglleDetails(j)" src="{{item.image}}">
+        <div class="detaill" *ngIf="isDetail===j">
+        <div >{{item.nom}}:{{item.prix}}Fr </div> 
+        <div *ngFor="let itembu of item.burger">{{itembu.nom}}</div> 
+        <div *ngFor="let itemboi of item.boisson">{{itemboi.nom}}</div> 
+        <div *ngFor="let itemf of item.fritte">{{itemf.nom}}</div> 
+    </div>
+    </div>
+    </div>
+        * -->
+       
+
+        <a routerLink="/panier" >
+            <h4 class="position-absolute top-0 end-0 ">
+               <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>  
+             
+              {{(items$ | async).length}} produits 
+            </h4>
+          </a>
+        
+              <div class="d-flex justify-content-center container " >
+                <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
+                    <div class="about-product text-center mt-2"><img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" width="300">
+                        <div>
+                            <h4>{{catalogues.nom}}</h4>
+                            <div class="d-flex justify-content-between">
+                            <a (click)="addToCart(catalogues)" class="btn btn-primary" >ajouter</a>
+                            <a class="btn btn-primary ">sup</a>
+                            <a [routerLink]="['/detail',catalogues.id]" class="btn btn-primary ">Détail</a> 
+                             </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>{{catalogues.burger}}</span><span>{{catalogues.prix}}Fr</span></div>
+                </div>
+            </div>

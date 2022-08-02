@@ -1,0 +1,11 @@
+
+<section class="main-content">
+    <div class="col-sm-6 col-md-6 col-lg-6" >
+<app-panier *ngFor="let product of items$ | async" [panier]="product" >
+    
+</app-panier>
+        <span class="text-white"><h1> prix total:{{getPrixtotal()}}Frc</h1></span>
+
+<div></div>
+</div>
+</section>

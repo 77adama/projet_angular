@@ -1,0 +1,24 @@
+
+
+           <!DOCTYPE html>
+           <html>
+               <head>
+                   <title>Cours Complet Bootstrap 4</title>
+                   <meta charset='utf-8'>
+                   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+               </head>
+               <body>
+                   <div class="container">
+                       <h1>{{boissonn.nom}}</h1>
+                       <div class="card" style="width: 20rem;">
+                           <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
+                           <div class="card-body" >
+                            <div> <app-taille *ngFor="let taille of boissonn.tailles" [taillee]="taille"></app-taille> </div>
+                            
+                           </div>
+                       </div>
+                   </div>
+               </body>
+           </html>
+
+
