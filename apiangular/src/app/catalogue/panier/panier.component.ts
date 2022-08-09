@@ -61,8 +61,8 @@ export class PanierComponent implements OnInit {
       
     }
   }
-  getQuantity(product:any,quantity:any){
-    return this.prser.getQuantity(product,quantity);
+  getQuantity(quantity:any){
+    return this.prser.getQuantity(quantity);
   }
 
   
@@ -71,7 +71,7 @@ export class PanierComponent implements OnInit {
   ngOnInit(): void {
     this.quantite=1;
     this.getPrixtotal();
-    this.tab = this.prser.getQuant();
+    
    
     
   }

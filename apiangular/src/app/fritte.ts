@@ -3,5 +3,5 @@ export interface Fritte{
     nom:string,
     image?:string,
     prix:number,
-
+    quantity:number;
 }

@@ -56,8 +56,12 @@
        <h3 class="bg-succes">prix:{{product.prix * quantity}}Fr</h3>
        <a href="#!" class="food-card_author">gggg</a>
         </div>
-   
+   console.log(this.menus.menuBoissons.length);
+        this.menus.menuBoissons.forEach((element:any)=>{
+          this.tab.push(element);
+        })
     <span class="text-white bg-primary">{{som}}</span>
+                            <div> <app-taille *ngFor="let taille of boissonn.boisson.tailles" [taillee]="taille"></app-taille> </div>
    
     * * * * * * * * * * * * * -->
 
@@ -98,7 +102,7 @@
                                 name="quantity"
                                  min="1" 
                                  id="quantity"
-                                 (change)="getQuantity(product,quantity.value);getPrixtotal()"
+                                 (change)="getQuantity(quantity.value);getPrixtotal()"
                                  #quantity
                                 type="number" 
                                 class="form-control input-manulator" 
@@ -122,5 +126,5 @@
             
         </div>
         
-        <span class="text-white"><h1> prix total:{{getPrixtotal()}}Frc</h1></span>
+    
         

@@ -5,13 +5,13 @@
                 <div class="d-flex justify-content-between align-items-center p-2 " class="column">
                     <div> <img src="https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/blt130eb8978cc923bf/615db7e9b084d018488c0a1e/3010.jpg?auto=webp" height="100" width="100" /> </div>
                     <div>
-                    <div class="flex-column lh-1 imagename"> <span>{{frittee.nom}}</span> <span></span> </div>
-                    <div class="flex-column lh-1 imagename"> <span>{{frittee.prix * quantity}}</span> <span></span> </div>
-                    <div class="flex-column lh-1 imagename"> <span>{{frittee.portionnss}}</span> <span></span> </div>
+                    <div class="flex-column lh-1 imagename"> <span>nom:{{frittee.fritte.nom}}</span> <span></span> </div>
+                    <div class="flex-column lh-1 imagename"> <span>Quantity:{{frittee.quantite}}</span> <span></span> </div>
+                    <div class="flex-column lh-1 imagename"> <span>portion:{{frittee.fritte.portionnss}}</span> <span></span> </div>
                 </div>
                 <div>
                     <input #t
-                    min="1"
+                    min="0"
                     type="number"
                     class="form-control input-manulator" 
                     placeholder="" 

@@ -1,15 +1,46 @@
-<div class="card-body" >
-    <div class="d-flex justify-content-between">
-        <h2 class="card-title"></h2>
-        <h4 class="card-subtitle">{{taillee.libelle}}</h4>
-        <p class="card-text">{{taillee.prix * quantity}}Fr</p>
-        <input #t
-        min="1"
-        type="number"
-        class="form-control input-manulator" 
-        placeholder="" 
-        aria-label="Example text with button addon" 
-        aria-describedby="button-addon1" 
-        value="{{quantity}}" (click)="mmm(t)"> 
-    </div>
-   </div>
+
+
+
+   
+    
+        
+            <div class="card-body p-0">
+              <div class="row g-0">
+                <div class="col-lg-8 ">
+                  <div class="">
+                   
+                    
+                    <div class="row mb-4 d-flex justify-content-between align-items-center">
+                      
+                      <div class="col-md-3 col-lg-3 col-xl-3 ">
+                        <h6 class="text-muted">{{taillee.prix * quantity}}Fr</h6>
+                        <h6 class="text-black mb-0">{{taillee.libelle}}</h6>
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex ">
+                        <button (click)="removeQte()"  class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                          <i class="fas fa-minus"></i>
+                        </button>
+  
+                        <input #q 
+                        name="Qte"
+                        min="1" 
+                        id="Qte"
+                        id="form1" min="0" name="quantity" value="{{Qte}}" type="number"
+                          class="form-control form-control-sm" />
+  
+                        <button (click)="addQte()" class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                     
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+ 
+ 

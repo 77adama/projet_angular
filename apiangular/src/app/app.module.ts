@@ -20,12 +20,21 @@ import { CardpanierComponent } from './cardpanier/cardpanier.component';
 import { FritteComponent } from './catalogue/detail/fritte/fritte.component';
 import { BoissonComponent } from './catalogue/detail/boisson/boisson.component';
 import { TailleComponent } from './catalogue/detail/taille/taille.component';
+import { ComandClientComponent } from './cardpanier/comand-client/comand-client.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ListeCommandeComponent } from './cardpanier/liste-commande/liste-commande.component';
+import { DetailCommandeComponent } from './cardpanier/detail-commande/detail-commande.component';
+import { ModalComponent } from './cardpanier/modal/modal.component';
 
 const routes : Routes = [
   { path: 'detail/:id', component: DetailComponent },
+  { path: 'detailComd/:id', component: DetailCommandeComponent },
   { path: 'panier', component: CardpanierComponent },
+  { path: 'comand-client', component: ComandClientComponent },
   { path: '', component: CatalogueComponent},
   { path: 'burger', component: CatBurgerComponent },
+  { path: 'liste-commande', component: ListeCommandeComponent },
+
 ]
 
 @NgModule({
@@ -41,7 +50,11 @@ const routes : Routes = [
     CardpanierComponent,
     FritteComponent,
     BoissonComponent,
-    TailleComponent
+    TailleComponent,
+    ComandClientComponent,
+    ListeCommandeComponent,
+    DetailCommandeComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +63,8 @@ const routes : Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
     
   ],
   providers: [ CurrencyPipe],

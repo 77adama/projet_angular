@@ -2,9 +2,11 @@
 
 
 import { CurrencyPipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProduitService } from 'src/app/service/produit.service';
+import { CatalogueService } from '../service/catalogue.service';
 
 @Component({
   selector: 'app-cardpanier',
@@ -18,12 +20,19 @@ export class CardpanierComponent implements OnInit {
   ElementRef
 > | any;
 currencyPipe: any;
-  constructor(private prser: ProduitService) { }
+  postId: any;
+  constructor(private prser: ProduitService, private http: HttpClient,
+    private catalogue: CatalogueService) { }
   items:any = [];
   qtyTotal= 0
   items$:any = this.prser.items$;
   quantity:number=0;
   som:number=this.getPrixtotal();
+  command:boolean=true;
+  aLivrer:boolean=true;
+  zone:any;
+  fritteTotal!:any;
+ boissonTotal!:any;
 
 //----- calculate total
 get total() {
@@ -73,12 +82,38 @@ get total() {
 
 
   ngOnInit(): void {
+
+    this.catalogue.findBoisson().subscribe(
+      boiso=>{
+        this.boissonTotal = boiso
+      }
+    )
+    this.catalogue.findFritte().subscribe(
+      fritte=>{
+        this.fritteTotal =fritte
+      });
    /// this.som += this.prser.getPrixtotal();
   ///  console.log(this.som);
   
   this.getPrixtotal();
     
     this.quantity = 1
+
+    this.prser.getZone().subscribe(
+      zon=>{
+        this.zone =zon
+        
+        
+      });
+
+
+  }
+idd!:number;
+  getObjetZone(z: any){
+   
+    this.idd =z.id;
+    
+    
   }
 
 
@@ -106,5 +141,89 @@ this.quantity = +t.value;
     }
   }
  
+getPanier(){
+  return this.prser.getPanier();
+}
 
+tabStru:any[]=[];
+structureCommand(){
+  
+  this.prser.getPanier().forEach(element=>{
+    
+    
+    this.tabStru.push({
+      // "quantite": element.quantity,
+      // "produits": "/api/produits/"+element.id
+      "quantite": element.quantity,
+      "prix": 43000,
+      "produit": [
+        "/api/produits/"+element.id
+      ]
+      
+    })
+    
+    
+  })
+  
+  
+  return this.tabStru;
+}
+
+sendCommande(){
+ 
+  
+  this.http.post<any>('http://localhost:8000/api/commandes', 
+  {
+    
+    "produits":this.structureCommand(),
+    "client": "/api/clients/4",
+   "timeAt": "2022-08-08T16:30:37.234Z",
+    "etat": "en cours"
+  }
+  ).subscribe(data => {
+    
+    this.postId = data.id;
+  })
+  
+      
+       this.postId;
+  }
+
+  test(){
+    this.command = false;
+  }
+  
+  aLivrerr(){
+    this.aLivrer = false;
+  }
+  
+  // "isEtat": true,
+  // "produits": [
+  //   {
+  //     "quantite": 0,
+  //     "produits": [
+  //       "string"
+  //     ]
+  //   }
+  // ],
+  // "client": "string"
+
+  sendCommandeZone(){
+    this.http.post<any>('http://localhost:8000/api/commandes', 
+    {
+      
+      "produits":this.tabStru,
+      "client": "/api/clients/4",
+      "zones": [
+        "/api/zones/"+this.idd
+      ]
+    }
+    ).subscribe(data => {
+      
+      this.postId = data.id;
+    })
+    
+        
+         this.postId;
+    }
 }

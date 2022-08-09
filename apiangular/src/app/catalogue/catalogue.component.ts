@@ -14,6 +14,8 @@ export class CatalogueComponent implements OnInit {
  produits!:any;
  menus!:any;
  burgers!:any;
+ searchText!:string;
+
   constructor(private catalogueServise: CatalogueService,private prser: ProduitService) { }
 
   items$:any = this.prser.items$;

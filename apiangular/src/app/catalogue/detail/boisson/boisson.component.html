@@ -6,19 +6,75 @@
                    <title>Cours Complet Bootstrap 4</title>
                    <meta charset='utf-8'>
                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-               </head>
+               </head> 
                <body>
+                <a routerLink="/panier" >
+                  <h4 class="position-absolute top-0 end-0 ">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>  
+                   
+                    {{(items$ | async).length}} produits 
+                  </h4>
+                </a>
+                
                    <div class="container">
-                       <h1>{{boissonn.nom}}</h1>
+                       <h1>{{boissonn.boisson.nom}}</h1>
+                      <h1>{{qntboisson}}</h1>
                        <div class="card" style="width: 20rem;">
                            <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
-                           <div class="card-body" >
-                            <div> <app-taille *ngFor="let taille of boissonn.tailles" [taillee]="taille"></app-taille> </div>
+                           <div class="card-body" > 
+                           <div *ngFor="let taille of boissonn.boisson.tailles">
+
+
+
+   
+    
+        
+            <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-8 ">
+                    <div class="">
+                     
+                      
+                      <div class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                          <h6 class="text-muted"></h6>
+                          <h6 class="text-black mb-0">{{taille.libelle}}</h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex ">
+                           
+                          <button (click)="removeQte()" (click)="compare()"  class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                          <input 
+                          name="Qte"
+                          min="1" 
+                          id="Qte"
+                          id="form1" min="0" name="quantity" value="" type="number"
+                            class="form-control form-control-sm" />
+    
+                          <button  (click)="addQte()" (click)="compare()" class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                       
+                      </div>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+   
+   
+                           </div>
                             
                            </div>
                        </div>
                    </div>
+                   <button [disabled]="ajout" (click)="addToCart(boissonn)">ajouter au panier</button>
                </body>
            </html>
-
-

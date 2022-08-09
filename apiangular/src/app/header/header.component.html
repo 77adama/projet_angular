@@ -4,7 +4,8 @@
        [active]="rla.isActive"* -->
         <img src="assets/logo.png">
         <a mat-tab-link *ngFor="let link of navLinks" >{{link.label}}</a>
-       
-
+       <button [routerLink]="['/comand-client']">lister les commandes Client</button>
+       <button [routerLink]="['/liste-commande']">lister les commandes</button>
       </nav>
   
+      

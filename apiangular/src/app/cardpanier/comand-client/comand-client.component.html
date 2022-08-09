@@ -1,0 +1,44 @@
+
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">les commandes du client   {{CommandClient.nom}}</th>
+        <th scope="col">numero</th>
+        <th scope="col">etat</th>
+        <th scope="col">nom du produit</th>
+        <th scope="col">prix</th>
+        <th scope="col">option</th>
+      </tr>
+      
+    </thead>
+    <tbody *ngFor="let command of CommandClient.commandes">
+      <tr>
+        <th></th>
+        <td>{{command.id}}</td>
+        <td >{{command.etat}}</td>
+        <td *ngFor="let comP of command.produits">  
+          <div *ngFor="let comPr of comP.produit">
+                <div>{{comPr.nom}}</div>
+              
+
+          </div>
+        </td>
+        <td *ngFor="let comP of command.produits">  
+         
+                <div>{{comP.prix}}</div>
+              
+
+          
+        </td>
+        <td>
+                <button [routerLink]="['/detailComd',command.id]" class="btn btn-outline-primary btn-sm">Détails</button>
+                <button (click)="sendCommandePut(command.id)"  class="btn btn-warning btn-sm">Annuler</button>
+                <button class="btn btn-danger btn-sm">sup</button>
+        </td>
+      </tr>
+          
+                    
+                    
+    </tbody>
+  </table>
+  

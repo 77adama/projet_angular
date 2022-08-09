@@ -19,14 +19,18 @@
 
 * * -->
 
-<div class="d-flex justify-content-center align-items-center flex-column ">
+<div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+  </div>
+
+ <div class="d-flex justify-content-center align-items-center flex-column ">
     <h2 class="text-white">Faites-vous </h2>
     <h2 class="text-white">livrer votre burger préféré en 30 minutes</h2>
-</div>
+</div> 
 <h2 class="text-white">Mes Menus</h2>
 
-    <div class="d-flex" >
-    <app-card  class="d-flex" *ngFor="let item of menus" [catalogues]="item">
+    <div class="d-flex flex-wrap" >
+    <app-card  class="d-flex" *ngFor="let item of menus  | filter:searchText " [catalogues]="item">
         
     </app-card>
 </div>
@@ -34,8 +38,8 @@
 
 <h2 class="text-white">Mes Burgers</h2>
 
-    <div class="d-flex" desabled="toggle(j)">
-    <app-menu  class="d-flex" *ngFor="let item of burgers let j=index,"  [catalogues]="item"></app-menu>
+    <div class="d-flex flex-wrap" desabled="toggle(j)">
+    <app-menu  class="d-flex" *ngFor="let item of burgers  | filter:searchText ; let j=index,"  [catalogues]="item"></app-menu>
 </div>
 
 

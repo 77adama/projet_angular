@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,13 @@ export class HeaderComponent implements OnInit {
 
   navLinks: any[]=[];
 
-  constructor() { }
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.navLinks = [
       {
         label: 'Gerer les Commandes',
-        //  link: '',
+        link: '/comand-client',
         // index: 0,
       }, {
         label: 'Produits',

@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <section class="main-content">
-    <div class="col-sm-6 col-md-6 col-lg-6" >
-      <div class="food-card food-card--vertical">
+
+  
+   
+      <div class="food-card food-card--vertical d-flex">
           <div class="food-card_img">
               <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" alt="">
               <a href="#!"><i class="fa fa-heart"></i></a>
@@ -17,12 +9,12 @@
           <div class="food-card_content">
               <div class="food-card_title-section">
                   <a href="#!" class="food-card_title">{{menus.nom}}</a>
-                  <a href="#!" class="food-card_author">prix inutaire:{{menus.prix}}</a>
+                  <a href="#!" class="food-card_author"><h3>prix inutaire:{{menus.prix}}</h3></a>
               </div>
               <div class="food-card_bottom-section">
                   <div class="space-between">
                       <div>
-                          <span class="fa fa-fire"></span> prix:{{menus.prix * quantity}}
+                          <span class="fa fa-fire"></span> <h3>prix:{{menus.prix * quantitee}}</h3>
                       </div>
                       <div class="pull-right">
                           <span class="badge badge-success"></span>
@@ -38,15 +30,17 @@
                               <div class="input-group-prepend">
                               </div>
                               <input #t
+                              (change)="getQuantityM(quantity.value);getPrixtotalM()"
+                              #quantity
                               min="1"
                               type="number"
                                class="form-control input-manulator" 
                                placeholder="" 
                                aria-label="Example text with button addon" 
                                aria-describedby="button-addon1" 
-                               value="{{quantity}}" (click)="mmm(t)">
+                               value="{{quantitee}}" (click)="mmm(t)">
                               <div class="input-group-append">
-                                <h1>ajouter au panier</h1>
+                              
                               </div>
                           </div>
                       </div>
@@ -54,12 +48,143 @@
               </div>
           </div>
       </div>
-      <div class="fritte">   <app-fritte *ngFor="let fritt of fritte" [frittee]="fritt"></app-fritte> </div>
-    <div class="boisson"><app-boisson *ngFor="let boiss of boisson" [boissonn]="boiss"></app-boisson></div>
+    <div class="d-flex">
+      <div class="fritte"> 
+          <app-fritte *ngFor="let fritt of menus.menuFrittes" [frittee]="fritt"></app-fritte>
+          <button [disabled]="ajout" (click)="addToCart(menus)" class="mt-5 ml-5 position-relative">ajouter  au panier</button>
+         </div>
+    <div class="d-flex bg-success mt-5 ml-5 float-sm-left">
+      <a routerLink="/panier" >
+        <h4 class="position-absolute top-0 end-0 ">
+           <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>  
+         
+          {{(items$ | async).length}} produits 
+        </h4>
+      </a>
+      
+         <div class="container mt-5 h-25" *ngFor="let boiss of menus.menuBoissons">
+             <h1>{{boiss.boisson.nom}}</h1>
+            <h1>stock taille:{{boiss.boisson.id}}</h1>
+             <div class="card" style="width: 20rem;">
+                 <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
+                 <div class="card-body" > 
+                 <div *ngFor="let taille of boiss.boisson.tailles">
+
+
+
+
+
+
+  <div class="card-body p-0 d-flex" >
+      <div class="row g-0">
+        <div class="col-lg-8 ">
+          <div class="">
+           
+            
+            <div class="row mb-4 d-flex justify-content-between align-items-center">
+              <div class="col-md-3 col-lg-3 col-xl-3 ">
+                <h6 class="text-muted"></h6>
+                <h6 class="text-black mb-0">{{taille.libelle}}</h6>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex ">
+                 
+                <button (click)="removeQte()" (click)="compare()"  class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input 
+                name="Qte"
+                min="1" 
+                id="{{boiss.boisson.id}}"
+                id="form1" min="0" name="quantity" value="" type="number"
+                  class="form-control form-control-sm" />
+
+                <button  (click)="addQte()" (click)="compare()" class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+             
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-   
-    </section>
-</body>
-</html>
+ 
+
+
+                 </div>
+                  
+                 </div>
+             </div>
+         </div>
+        </div>
+        </div>
+         
+        <div class="container">
+          <div class="row mt-2 g-4" >
+              <div class="col-md-3"  class="aa">
+                  <div class="card p-1">
+                    listes des frittes
+                      <div class="d-flex justify-content-between align-items-center p-2 " >
+                          <div *ngFor="let frit of fritteTotal"> 
+                            <div> <img src="https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/blt130eb8978cc923bf/615db7e9b084d018488c0a1e/3010.jpg?auto=webp" height="100" width="100" /> </div>
+                          <div class="flex-column lh-1 imagename"> <span>nom:{{frit.nom}}</span> <span></span> </div>
+                          <div class="flex-column lh-1 imagename"> <span>Quantity:{{frit.quantite}}</span> <span></span> </div>
+                          <div class="flex-column lh-1 imagename"> <span>portion:{{frit.portionnss}}</span> <span></span> </div>
+                      </div>
+                      
+                      </div>
+                  </div> 
+              </div>
+           </div>
+      </div>
+
+      <!-- --------------------------------listes de boissons-------------------------------- -->
+
+
+      <div class="container" *ngFor="let boisson of boissonTotal">
+        <h1>{{boisson.nom}}</h1>
+       <h1>{{qntboisson}}</h1>
+        <div class="card" style="width: 20rem;">
+            <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
+            <div class="card-body" > 
+            <div *ngFor="let taille of boisson.tailles">
+
+
+
+
+
+
+<div class="card-body p-0">
+ <div class="row g-0">
+   <div class="col-lg-8 ">
+     <div class="">
+      
+       
+       <div class="row mb-4 d-flex justify-content-between align-items-center">
+         <div class="col-md-3 col-lg-3 col-xl-3 ">
+           <h6 class="text-muted"></h6>
+           <h6 class="text-black mb-0">{{taille.libelle}}</h6>
+         </div>
+         <div class="col-md-3 col-lg-3 col-xl-2 d-flex ">
+            
+          
+         </div>
+        
+       </div>
+
+     </div>
+   </div>
+ </div>
+</div>
+
+
+
+            </div>
+
 
 

@@ -10,12 +10,12 @@ import { CatalogueService } from 'src/app/service/catalogue.service';
 export class FritteComponent implements OnInit {
   @Input() frittee!:any;
   fritte!:any;
-
+qte:number = 0;
   constructor(private catalogue: CatalogueService,private route: ActivatedRoute) { }
   quantity:number=0;
 
   ngOnInit(): void {
-    this.quantity=1;
+    this.quantity=0;
     // this.burger = this.catalogue.getOneBy(1)
   const idBurger = +this.route.snapshot.params['id'];
   
@@ -39,4 +39,9 @@ export class FritteComponent implements OnInit {
     this.quantity = +t.value
   }
 
+  getQte(quantity:number){
+    return this.catalogue.getQte(quantity)
+  }
+
+  
 }

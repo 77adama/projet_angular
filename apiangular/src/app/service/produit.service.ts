@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
 import { Catalogue } from '../catalogue';
+import { Client } from '../Client';
+import { Commande } from '../commande';
 
 @Injectable({
   providedIn: 'root'
@@ -69,7 +71,7 @@ itemInCart(products:any): boolean {
     ).subscribe();
   } 
   
-  getQuantity(product: any,quantity:number) {
+  getQuantity(quantity:number) {
 
     this.items$.pipe(
       take(1),
@@ -153,10 +155,52 @@ itemInCart(products:any): boolean {
   
   
 ///  }
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+//////////////////////////////commande////////////////////////////////////////////////////////////////////
+tabPanier:any[]=[];
+getPanier(){
+  this.items$.subscribe(data=>{
+    console.log(data);
+    
+   this.tabPanier=data;
+   
+    
+  }
+  )
+  return  this.tabPanier
+}
  
 
-    
+//////////////////////////////les zones////////////////////////////////////////////////////////////////////
+
+urlZone="http://localhost:8000/api/zones"
+
+getZone(): Observable<any> {
+  console.log(this.http.get<any>(this.urlZone));
+  
+  return this.http.get<any>(this.urlZone);
+}
+
+
+getClient(): Observable<any> {
+ 
+  
+  return this.http.get<any>(this.urlZone);
+}
+
+
+
+//////////////////////////////lister les commandes clients////////////////////////////////////////////////////////////////////
+
+urlCommandClie="http://localhost:8000/api/clients/4"
+getCommandClient(): Observable<Client> {
+ 
+  return this.http.get<Client>(this.urlCommandClie);
+}
+
+
+urlListeComman="http://localhost:8000/api/commandes"
+getCommandAll(): Observable<Commande> {
+ 
+  return this.http.get<Commande>(this.urlListeComman);
+}
 }

@@ -1,0 +1,19 @@
+<div class="card container mt-5" style="width: 18rem;">
+    <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{commande.id}}</h5>
+      <p class="card-text" *ngFor="let com of commande.produits">
+        <small *ngFor="let comm of com.produit">{{comm.nom}}</small>
+        
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let com of commande.produits">{{com.prix}}</li>
+      <li class="list-group-item" *ngFor="let com of commande.produits">{{com.quantite}}</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>

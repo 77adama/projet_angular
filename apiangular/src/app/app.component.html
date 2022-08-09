@@ -126,9 +126,12 @@
   }
   
 ]
-  * * * * * * * * * * -->
+  * * * * * 
+   <div class="boisson"><app-boisson *ngFor="let boiss of menus.menuBoissons" [boissonn]="boiss"></app-boisson></div>
+  * * * * * -->
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * <div class="fritte">   <app-fritte *ngFor="let fritt of fritte" [frittee]="fritt"></app-fritte> </div>
+    <div class="boisson"><app-boisson *ngFor="let boiss of boisson" [boissonn]="boiss"></app-boisson></div> * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
 <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
