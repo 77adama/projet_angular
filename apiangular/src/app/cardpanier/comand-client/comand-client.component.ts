@@ -30,8 +30,8 @@ export class ComandClientComponent implements OnInit {
 
   }
 
-  sendCommandePut(id:number){
-    this.http.put<any>('http://localhost:8000/api/commandes/'+id, 
+  sendCommandePut(comm:Commande){
+    this.http.put<any>('http://localhost:8000/api/commandes/'+comm.id, 
     {
       
       "etat": "annuller",
@@ -47,15 +47,17 @@ export class ComandClientComponent implements OnInit {
     
         
          this.postId;
-         console.log("a");
+         
          
     }
    
     
   
-    annulerr(){
-   
-    return   this. command.isEtat="annuler"
+    annulerr(comm:Commande){
+      comm.etat="annuler"
+     
+      
+      
     }
 
 }

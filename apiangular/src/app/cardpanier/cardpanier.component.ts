@@ -29,6 +29,8 @@ currencyPipe: any;
   quantity:number=0;
   som:number=this.getPrixtotal();
   command:boolean=true;
+  nonCommand:boolean=false;
+  valider:boolean=true;
   aLivrer:boolean=true;
   zone:any;
   fritteTotal!:any;
@@ -155,7 +157,7 @@ structureCommand(){
       // "quantite": element.quantity,
       // "produits": "/api/produits/"+element.id
       "quantite": element.quantity,
-      "prix": 43000,
+      "prix": 7000,
       "produit": [
         "/api/produits/"+element.id
       ]
@@ -176,8 +178,8 @@ sendCommande(){
   {
     
     "produits":this.structureCommand(),
-    "client": "/api/clients/4",
-   "timeAt": "2022-08-08T16:30:37.234Z",
+    "client": "/api/clients/27",
+    "timeAt": "2022-08-10T07:38:49.157Z",
     "etat": "en cours"
   }
   ).subscribe(data => {
@@ -192,7 +194,12 @@ sendCommande(){
   test(){
     this.command = false;
   }
-  
+  nonComd(){
+    this.nonCommand = true;
+  }
+  validerr(){
+    this.valider = false;
+  }
   aLivrerr(){
     this.aLivrer = false;
   }
@@ -212,11 +219,13 @@ sendCommande(){
     this.http.post<any>('http://localhost:8000/api/commandes', 
     {
       
-      "produits":this.tabStru,
+      "produits":this.structureCommand(),
       "client": "/api/clients/4",
       "zones": [
         "/api/zones/"+this.idd
-      ]
+      ],
+      "timeAt": "2022-08-09T18:05:14.445Z",
+      "etat": "en cours"
     }
     ).subscribe(data => {
       

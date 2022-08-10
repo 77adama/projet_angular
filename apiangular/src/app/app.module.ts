@@ -25,6 +25,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListeCommandeComponent } from './cardpanier/liste-commande/liste-commande.component';
 import { DetailCommandeComponent } from './cardpanier/detail-commande/detail-commande.component';
 import { ModalComponent } from './cardpanier/modal/modal.component';
+import { ComplementComponent } from './catalogue/panier/complement/complement.component';
 
 const routes : Routes = [
   { path: 'detail/:id', component: DetailComponent },
@@ -54,7 +55,8 @@ const routes : Routes = [
     ComandClientComponent,
     ListeCommandeComponent,
     DetailCommandeComponent,
-    ModalComponent
+    ModalComponent,
+    ComplementComponent
   ],
   imports: [
     BrowserModule,

@@ -53,6 +53,8 @@ export class MenuComponent implements OnInit {
         fritte=>{
           this.fritteTotal =fritte
         });
+
+        
   }
   addToCart(product: any) {
     this.prser.addToCart(product);

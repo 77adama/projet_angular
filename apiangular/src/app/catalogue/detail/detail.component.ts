@@ -95,6 +95,7 @@ export class DetailComponent implements OnInit {
  this.catalogue.findBurger(idBurger).subscribe(
   fritte=>{
     this.burgers =fritte
+    
   });
   // // // // // // //  //  //  //  //  //  //  ////////
 

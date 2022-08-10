@@ -12,10 +12,6 @@ body{
     display: flex;
     flex-direction: column;
 } */
-section{
-    
-    
-}
 .butt{
     display: flex;
     justify-content: space-around;

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Commande } from 'src/app/commande';
@@ -6,7 +7,8 @@ import { ProduitService } from 'src/app/service/produit.service';
 @Component({
   selector: 'app-liste-commande',
   templateUrl: './liste-commande.component.html',
-  styleUrls: ['./liste-commande.component.css']
+  styleUrls: ['./liste-commande.component.css'],
+  providers: [DatePipe]
 })
 export class ListeCommandeComponent implements OnInit {
   CommandALL!:any;
@@ -14,6 +16,8 @@ export class ListeCommandeComponent implements OnInit {
   postId!: any;
   encours!:string
   comd!:any;
+  idd!:any;
+  searchText!:string;
   constructor(private prser: ProduitService,private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -21,13 +25,14 @@ export class ListeCommandeComponent implements OnInit {
     this.prser.getCommandAll().subscribe(
       comand=>{
         this.CommandALL =comand
-       console.log();
+     
+       console.log(this.CommandALL);
        
-      this.CommandALL.forEach((item: any)=>{
-          this.etatA= item.etat
+      // this.CommandALL.forEach((item: any)=>{
+      //     this.idd= item.id
          
           
-        });
+      //   });
         
       //   this.menus.menuBoissons.forEach((item: any) =>{
       //     this.qntboisson = item.quantite;
@@ -40,23 +45,17 @@ export class ListeCommandeComponent implements OnInit {
 
 
 
-sendCommandePut(id:number){
-  this.http.put<any>('http://localhost:8000/api/commandes/'+id, 
+sendCommandePut(comm:Commande){
+
+  this.http.put<any>('http://localhost:8000/api/commandes/'+comm.id, 
   {
     
-    "etat": "annuller",
+    "etat": "annuler",
     
   }
   ).subscribe(data => {
-    this.CommandALL =data
+   
        
-      this.CommandALL.forEach((item: any)=>{
-          this.etatA= item.etat
-        
-         
-          
-        });
-    
     this.postId = data.id;
   })
   
@@ -66,11 +65,15 @@ sendCommandePut(id:number){
        
   }
 
-  annulerr(){
-    this.etatA="annuler"
+  annulerr(comm:Commande){
+    comm.etat="annuler"
    
     
     
   }
+//  ///////////////////////////////       /////////////////////////
+
+
+
 }
 

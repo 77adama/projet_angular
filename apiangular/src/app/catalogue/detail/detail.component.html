@@ -66,7 +66,8 @@
       
          <div class="container mt-5 h-25" *ngFor="let boiss of menus.menuBoissons">
              <h1>{{boiss.boisson.nom}}</h1>
-            <h1>stock taille:{{boiss.boisson.id}}</h1>
+             <h1>stock taille:2</h1>
+            <!-- <h1>stock taille:{{boiss.boisson.quantity}}</h1> -->
              <div class="card" style="width: 20rem;">
                  <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
                  <div class="card-body" > 
@@ -114,7 +115,7 @@
       </div>
     </div>
  
-
+<!--  --------------------------------listes des frittes -->
 
                  </div>
                   
@@ -128,7 +129,7 @@
           <div class="row mt-2 g-4" >
               <div class="col-md-3"  class="aa">
                   <div class="card p-1">
-                    listes des frittes
+                    listes des frittes 
                       <div class="d-flex justify-content-between align-items-center p-2 " >
                           <div *ngFor="let frit of fritteTotal"> 
                             <div> <img src="https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/blt130eb8978cc923bf/615db7e9b084d018488c0a1e/3010.jpg?auto=webp" height="100" width="100" /> </div>
@@ -146,9 +147,9 @@
       <!-- --------------------------------listes de boissons-------------------------------- -->
 
 
-      <div class="container" *ngFor="let boisson of boissonTotal">
-        <h1>{{boisson.nom}}</h1>
-       <h1>{{qntboisson}}</h1>
+      <div class="container d-flex  justify-content-around" *ngFor="let boisson of boissonTotal">
+         <div><h1>{{boisson.nom}}</h1>
+          <h1>{{qntboisson}}</h1></div>
         <div class="card" style="width: 20rem;">
             <img src="https://previews.123rf.com/images/radub85/radub851602/radub85160200066/51773761-bucarest-roumanie-16-janvier-2016-coca-cola-sprite-et-fanta-sont-les-plus-c%C3%A9l%C3%A8bres-boissons-gazeuses.jpg" class="card-img-top" alt="Accroche HTML">
             <div class="card-body" > 
@@ -182,8 +183,9 @@
  </div>
 </div>
 
+</div>  </div>
 
-
+            </div>
             </div>
 
 

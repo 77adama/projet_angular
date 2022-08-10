@@ -175,7 +175,7 @@ getPanier(){
 urlZone="http://localhost:8000/api/zones"
 
 getZone(): Observable<any> {
-  console.log(this.http.get<any>(this.urlZone));
+
   
   return this.http.get<any>(this.urlZone);
 }
