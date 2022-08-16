@@ -23,7 +23,7 @@ export class DetailCommandeComponent implements OnInit {
         
         this.commande=produits;
      
-       console.log(this.commande);
+       
       
           
       });

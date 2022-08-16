@@ -1,0 +1,154 @@
+<h1>les commandes du zone :{{zoneOne.nom_zone}}</h1>
+<div class="mt-5">
+  <table class="table table-sm">
+    <thead>
+      <tr class="">
+        <th class="col-1 ">#</th>
+        <th class="col-2">Staut Commande</th>
+        <th class="col-1">Prix Total</th>
+        <th class="col-2">Date de commande</th>
+        <th class="col-2">Zone</th>
+        <th class="col-2">Client</th>
+        <th class="col text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="tbody" *ngFor="let com of tabLivrai">
+      <tr class="">
+        <td class="col-1">{{com.id}}</td>
+        <td class="col-2">{{com.etat}}</td>
+        <td class="col-1" *ngFor="let produit of com.produits">{{produit.prix|currency:"XOF"}}</td>
+        <td class="col-2">{{com.timeAt|date:'le dd MM YYYY'}}</td>
+        <td class="col-2"></td>
+        <td class="col-2 "></td>
+        <td class="col-1  d-flex flex-row">
+          <input (click)="checboxx()" #c (click)="getObjetComd(c,com)" type="checkbox" value="">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="coontainer" *ngIf="tabLivrai.length > 0">
+  <button [disabled]="checbox" (click)="selectt()" class="btn btn-primary">selectinner un livreur</button>
+  <!-- <div *ngFor="let livr of livreur" >
+    <span> {{livr.nom}}</span><span>{{livr.matricule}}</span><input  (input)="getObjetLivreur(input)" #input value="{{livr.id}}" type="radio" name="livr">
+  </div> -->
+
+  <select [disabled]="select" (click)="test()" class="form-select container col-4" aria-label="Default select example"
+    (change)="getObjetLivreur($event)">
+    <option selected disabled value="">--selectinner un livreur--</option>
+    <option *ngFor="let livr of tabL" name="livr" [value]="livr.id">
+      {{livr.nom}}--{{livr.matricule}}--{{livr.email}}
+    </option>
+  </select>
+  <button [disabled]="livrer" class="btn btn-success" (click)="sendLivraison()">ajouter livraison</button>
+  <!-- <select class="form-select"  aria-label="Default select example" [ngModel]="liv">
+    <option selected disabled value="">--selectinner un livreur--</option>
+    <option #l (click)="getObjetLivreur(l)" name="livr"  value="{{livr.id}}" *ngFor="let livr of livreur">
+      {{livr.nom}}--{{livr.matricule}}--{{livr.email}}
+    </option>
+  </select> -->
+</div>
+
+<!-- <div class="form-check form-check-inline" *ngFor="let com of zoneOne.commandes">
+  <div *ngFor="let produit of com.produits">
+    <div *ngFor="let prod of produit.produit">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">
+   
+    <b> {{prod.nom}}</b> commandé au
+    <small>{{com.timeAt | date: 'shortDate' }}</small>
+  </label>
+      </div>
+    </div>
+</div>
+<h2><button>livrer commande </button></h2> -->
+
+
+<!-- #z (click)="getObjetZone(zones)" -->
+<!-- <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">numero   </th>
+        <th scope="col">nomZone</th>
+        <th scope="col">prix livraison</th>
+        <th scope="col">option</th>
+      </tr>
+      
+    </thead>
+    <tbody *ngFor="let zones of zon">
+      <tr>
+        <th>{{zones.id}}</th>
+    <td>{{zones.nom_zone}}</td> 
+        <td >{{zones.prix_livr}}</td>
+        <td >{{zones.commandes}}</td>
+        <td>
+                <button #zz (click)="getObjetZone(zones)" class="btn btn-outline-primary btn-sm">Details</button>
+                <button   class="btn btn-warning btn-sm">Annuler</button>
+                <button class="btn btn-danger btn-sm">sup</button>
+        </td>
+      </tr>
+          
+                    
+                    
+    </tbody>
+  </table> -->
+<!-- -------------------------------listes des commandes--------------------------------- -->
+<!-- <h2>Zone de {{idd.nom_zone}}</h2>
+  <div class="container mt-5 ml-5">
+<table class="table table-bordeless">
+    <tr class="bg-success">
+        <th>N°</th>
+        <th>dateCommande</th>
+        <th>etat</th>
+        <th>nom du produit</th>
+        <th>prix</th>
+        <th>nom du client</th>
+        <th class="text-center">parametre</th>
+        
+
+    </tr>
+ 
+
+            
+            <tr *ngFor="let com of idd.commandes">
+            <td>{{com.id}}</td>
+            <td>{{com.timeAt | date: 'shortDate' }}</td>
+            <td>{{com.etat}}</td> 
+            <td *ngFor="let produit of com.produits">{{produit.prix}}</td>
+            <td *ngFor="let produit of com.produits">
+                <div *ngFor="let prod of produit.produit">{{prod.nom}}</div>
+                
+            </td>
+            <td >
+              {{com.client.nom}}
+                
+            </td>
+            <td  class="text-center">
+            <button class="btn btn-outline-primary btn-sm">Détails</button>
+             <button  class="btn btn-warning btn-sm">annuler</button>
+             <button class="btn btn-danger btn-sm">suprimer</button>
+        </td>
+            </tr>
+                
+     
+    
+        
+      
+</table>
+
+</div> -->
+<!-- <div>
+<h2>detaille zone</h2>
+<p>{{idd.nom_zone}}</p>
+<div *ngFor="let com of idd.commandes">
+  <small>numero commande: {{com.id}}</small> <br>
+  <small>etat commande: {{com.etat}}</small> <br>
+  <p *ngFor="let produit of com.produits">
+    <small>prix: {{produit.prix}}</small> <br>
+    <small *ngFor="let prod of produit.produit">prix: {{prod.nom}}</small>
+  </p>
+ 
+</div>
+    
+  </div> -->

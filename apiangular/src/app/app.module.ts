@@ -26,8 +26,12 @@ import { ListeCommandeComponent } from './cardpanier/liste-commande/liste-comman
 import { DetailCommandeComponent } from './cardpanier/detail-commande/detail-commande.component';
 import { ModalComponent } from './cardpanier/modal/modal.component';
 import { ComplementComponent } from './catalogue/panier/complement/complement.component';
+  
+
+// const routes: Routes = [{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }];
 
 const routes : Routes = [
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'detail/:id', component: DetailComponent },
   { path: 'detailComd/:id', component: DetailCommandeComponent },
   { path: 'panier', component: CardpanierComponent },

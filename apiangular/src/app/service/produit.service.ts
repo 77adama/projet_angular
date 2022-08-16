@@ -4,6 +4,7 @@ import { BehaviorSubject, map, Observable, take } from 'rxjs';
 import { Catalogue } from '../catalogue';
 import { Client } from '../Client';
 import { Commande } from '../commande';
+import { Livraison } from '../livraison';
 
 @Injectable({
   providedIn: 'root'
@@ -179,7 +180,13 @@ getZone(): Observable<any> {
   
   return this.http.get<any>(this.urlZone);
 }
+findOneZone(id:number):Observable<any>{
+  return this.http.get<any>("http://localhost:8000/api/zones/"+id);
+}
 
+getLivreur():Observable<any> {
+  return this.http.get<any>("http://localhost:8000/api/livreurs");
+}
 
 getClient(): Observable<any> {
  
@@ -199,8 +206,38 @@ getCommandClient(): Observable<Client> {
 
 
 urlListeComman="http://localhost:8000/api/commandes"
-getCommandAll(): Observable<Commande> {
+getCommandAll(): Observable<any> {
  
-  return this.http.get<Commande>(this.urlListeComman);
+  return this.http.get<any>(this.urlListeComman);
+}
+//  //////////////////////////////
+UpdateCommand(id:number,etat:string){
+  this.http.put<any>('http://localhost:8000/api/commandes'+'/'+id,{etat: etat}).subscribe();
+  location.reload();
+}
+//  This fileReplacements is used to replaced by the
+tabComd:any[]=[]
+ ajoutComd(id:number){
+this.tabComd.push(id)
+ }
+retirComd(id:number){
+  this.tabComd.splice(this.tabComd.indexOf(id), 1)
+ }
+
+
+ removComd(id:number){
+
+ }
+
+//  /////////////////////////////////////liste livraison///////////////////////////////////////////
+
+urlListeLivraison="http://localhost:8000/api/livraisons"
+getLivraisonAll(): Observable<Livraison> {
+ 
+  return this.http.get<Livraison>(this.urlListeLivraison);
+}
+
+findOneLivreur(id:number):Observable<any>{
+  return this.http.get<any>("http://localhost:8000/api/livreurs/"+id);
 }
 }

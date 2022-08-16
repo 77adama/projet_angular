@@ -179,7 +179,7 @@ sendCommande(){
     
     "produits":this.structureCommand(),
     "client": "/api/clients/27",
-    "timeAt": "2022-08-10T07:38:49.157Z",
+    "timeAt": "2022-08-16T10:30:11.426Z",
     "etat": "en cours"
   }
   ).subscribe(data => {
@@ -224,7 +224,7 @@ sendCommande(){
       "zones": [
         "/api/zones/"+this.idd
       ],
-      "timeAt": "2022-08-09T18:05:14.445Z",
+      "timeAt": "2022-08-16T10:30:11.426Z",
       "etat": "en cours"
     }
     ).subscribe(data => {

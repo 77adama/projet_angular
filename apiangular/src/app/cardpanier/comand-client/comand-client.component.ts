@@ -30,7 +30,7 @@ export class ComandClientComponent implements OnInit {
 
   }
 
-  sendCommandePut(comm:Commande){
+  sendCommandePut(comm:any){
     this.http.put<any>('http://localhost:8000/api/commandes/'+comm.id, 
     {
       
@@ -47,6 +47,7 @@ export class ComandClientComponent implements OnInit {
     
         
          this.postId;
+      
          
          
     }

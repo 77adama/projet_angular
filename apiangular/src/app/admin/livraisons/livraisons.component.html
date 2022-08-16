@@ -1,0 +1,60 @@
+
+
+
+<div class="container mt-5 ml-5">
+    <table class="table table-bordeless">
+        <tr class="bg-success">
+            <th>N°</th>
+            <th>etat</th>
+            <th>zoneLivraison</th>
+            <th>prixLivraison</th>
+            <th class="text-center">parametre</th>
+            
+    
+        </tr>
+     
+    
+                
+                <tr *ngFor="let liv of livraisons">
+                <td>{{liv.id}}</td>
+                <td>{{liv.etat_livraison}}</td> 
+                <td >
+                    {{liv.zone.nom_zone}}
+                    
+                </td>
+                <td>
+                    {{liv.zone.prix_livr| currency:"XOF"}}
+                    
+                </td>
+                <td  class="text-center">
+                <button  class="btn btn-outline-primary btn-sm">Détails</button>
+                 <button  class="btn btn-warning btn-sm">annuler</button>
+                 <button class="btn btn-outline-primary btn-sm">terminer</button>
+            </td>
+                </tr>
+                    
+         
+        
+            
+          
+    </table> 
+    </div>
+    <h1>listes des livreurs occupés:</h1>
+    <div class="container mt-5">
+    <table class="table table-bordeless">
+        <tr class="bg-success">
+            <th>N°</th>
+            <th>etat</th>
+            <th>nom</th>
+            <th>email</th>
+            <th class="">parametre</th>
+        </tr>
+        <tr *ngFor="let liv of livraisons">
+            <td>{{liv.livreur.id}}</td>
+            <td>{{liv.livreur.etatLiv}}</td>
+            <td>{{liv.livreur.nom}}</td>
+            <td>{{liv.livreur.email}}</td>
+            <button [routerLink]="['/admin/livraisons/livreur',liv.livreur.id]"  class="btn btn-outline-primary btn-sm">Détails</button>
+        </tr> 
+    </table> 
+</div>
