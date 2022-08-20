@@ -8,6 +8,7 @@ export interface Commande{
     produits:Produit[],
     quantite:number
     client:Client[],
-    zones:Zone[]
+    zones:Zone[],
+    timeAt:number,
 }
 

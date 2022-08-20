@@ -14,6 +14,7 @@ export class ComandClientComponent implements OnInit {
   CommandALL!:any;
   postId!: any;
   command!:any;
+  searchText!:string;
   constructor(private prser: ProduitService, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class ComandClientComponent implements OnInit {
     this.http.put<any>('http://localhost:8000/api/commandes/'+comm.id, 
     {
       
-      "etat": "annuller",
+      "etat": "annuler",
       
     }
     ).subscribe(data => {

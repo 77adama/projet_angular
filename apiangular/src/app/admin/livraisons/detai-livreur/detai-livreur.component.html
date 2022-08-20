@@ -1,3 +1,27 @@
-<div>
-    {{LivreurOne.id}}
-</div>
+<div class="container mt-5 ml-5">
+    <table class="table table-bordeless">
+        <tr class="bg-success">
+            <th>N°</th>
+            <th>nom livreur</th>
+            <th>etat</th>
+            <th>matricule</th>
+            <th>email</th>
+            <th class="text-center">parametre</th>
+            
+    
+        </tr>
+     
+    
+                
+                <tr *ngFor="let liv of livres ">
+                <td>{{liv.id}}</td>
+                <td>{{liv.nom}}</td> 
+                <td>{{liv.etatLiv}}</td>
+                <td>{{liv.matricule}}</td>
+                <td>{{liv.email}}</td> 
+                <td  class="text-center">
+                <button class="btn btn-outline-success btn-sm">Détails</button>
+                <button (click)="occuperLivPut(liv)" (click)="occup(liv)" class="btn btn-outline-danger btn-sm">occuper</button>
+                <button (click)="dispoLivPut(liv)" (click)="dispon(liv)" class="btn btn-outline-primary btn-sm">disponible</button>
+            </td>
+                </tr>

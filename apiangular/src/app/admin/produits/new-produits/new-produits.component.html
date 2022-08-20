@@ -1,1 +1,142 @@
-<p>new-produits works!</p>
+<!-- <h1>Ajouter produit</h1>
+   
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+     
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+            <div>Name is required.</div>
+            <div >Name should be 3 character.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Prix</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="number" 
+            class="form-control">
+        <div *ngIf="f.prix.touched && f.prix.invalid" class="alert alert-danger">
+            <div>Name is required.</div>
+            <div >Name should be 3 character.</div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="file">Image</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            class="form-control"
+            (change)="onFileChange($event)">
+        <div *ngIf="f.image.touched && f.image.invalid" class="alert alert-danger">
+            <div>File is required.</div>
+        </div>
+    </div>
+    
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+        
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form> -->
+   
+
+<!-- {{ model | json }}
+<div class="form-group">
+
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="model.name" name="name">
+</div>
+
+<div class="form-group">
+  <label for="alterEgo">Alter Ego</label>
+  <input type="text"  class="form-control" id="alterEgo"
+         [(ngModel)]="model.alterEgo" name="alterEgo">
+</div>
+
+<div class="form-group">
+  <label for="power">Hero Power</label>
+  <select class="form-control"  id="power"
+          required
+          [(ngModel)]="model.power" name="power">
+    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+  </select>
+</div> -->
+
+<main class="container col-6 bg-success">
+    <div class="container col-10">
+      <div class="row justify-content-center pt-2">
+        <div class="text-center col">
+          <h1 class="h3 text-white">Formulaire d'ajout produits</h1>
+          <div class="d-flex justify-content-around">
+          <button (click)="disabl()" class="btn btn-primary">burger</button>
+          <button class="btn btn-primary">Boisson</button>
+          <button (click)="fritteP()" class="btn btn-primary">Frittes</button>
+          <button class="btn btn-primary ">Menus</button> </div>
+          <hr>
+        </div>
+      </div>
+      <div class="row justify-content-center p-2">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="card">
+            <div class="card-header text-center">
+              <h4> <span class="text-primary font-weight-bold">Ajouter burgers</span></h4>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="myForm" (ngSubmit)="submit()">
+                <div class="form-row d-flex justify-content-around">
+                  <div class="form-group col-md-4">
+                    <label for="inputEmail4">Nom</label>
+                    <input formControlName="nom" type="text" class="form-control" id="inputEmail4" placeholder="burger" value="burger">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="prix">prix</label>
+                    <input formControlName="prix" type="number" class="form-control" id="prix" value="0">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-around">
+                  <div class="form-group col-md-4">
+                    <label for="inputAddress">portionFritte</label>
+                    <input [disabled]="fritte" type="text" class="form-control" id="inputAddress" placeholder="portionFritte" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="">boisson</label>
+                  <select  class="form-select container col-4" aria-label="Default select example">
+                  <option selected disabled value="">--choisir un boisson--</option>
+                  <option >
+                    
+                  </option>
+                  </select>
+                  </div>
+                  <!-- <div class="form-group col-md-4">
+                    <label for="inputAddress">International</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="" value="$1,939,427,564">
+                  </div> -->
+                </div>
+                  <div class="form-row d-flex justify-content-center">
+                  <div class="form-group col-md-4">
+                    <label for="file">image</label>
+                    <input formControlName="image" (change)="onFileChange($event)" type="file" class="form-control" id="file" placeholder="" value="bb">
+                  </div>
+                </div>
+         <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
+                <div class="form-row justify-content-center">
+                  <!-- <button type="submit" class="btn btn-primary mr-4">Create</button>
+                  <button type="submit" class="btn btn-primary mr-4">Update</button> -->
+                  <button type="submit" class="btn btn-primary">envoyer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

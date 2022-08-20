@@ -17,7 +17,7 @@
  
 
             
-            <tr *ngFor="let comd of CommandALL ">
+            <tr *ngFor="let comd of tabC ">
             <td>{{comd.id}}</td>
             <td>{{comd.timeAt  |date:'le dd MM YYYY'}}</td> 
             <td>{{comd.etat}}</td>
@@ -27,13 +27,13 @@
                 
             </td>
             <td *ngFor="let comdP of comd.produits">
-                {{comdP.prix}}
+                {{comdP.prix}} 
                 
             </td>
             <td  class="text-center">
             <button [routerLink]="['/detailComd',comd.id]" class="btn btn-outline-primary btn-sm">Détails</button>
-             <button (click)="sendCommandePut(comd)" (click)="annulerr(comd)"   class="btn btn-warning btn-sm">annuler</button>
-             <button (click)="valideCommandePut(comd)" (click)="valider(comd)" class="btn btn-outline-primary btn-sm">valider</button>
+             <button *ngIf="comd.etat=='annuler'||comd.etat=='encours livraison'||comd.etat=='en cours'" (click)="sendCommandePut(comd)" (click)="annulerr(comd)"   class="btn btn-warning btn-sm">annuler</button>
+             <button *ngIf="comd.etat=='valider'||comd.etat=='en cours'" (click)="valideCommandePut(comd)" (click)="valider(comd)" class="btn btn-outline-primary btn-sm">valider</button>
         </td>
             </tr>
            
@@ -42,9 +42,9 @@
         
       
 </table> <h1>choisir zone</h1>
-<div class="container d-flex justify-content-around mt-2" *ngFor="let comd of CommandALL">
+<div  class="container d-flex justify-content-around mt-2" *ngFor="let comd of tabZ">
     <div *ngFor="let zon of comd.zones" class="container d-flex flex-nowrap justify-content-around">
-      <button [routerLink]="['/admin/commandes/zone/:zone',zon]">{{zon.nom_zone}}</button>  
+      <button class="btn btn-outline-primary btn-sm" [routerLink]="['/admin/commandes/zone/:zone',zon]">{{zon.nom_zone}}</button>  
     </div>
 </div>
 

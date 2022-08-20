@@ -1,4 +1,4 @@
-<h1>les commandes du zone :{{zoneOne.nom_zone}}</h1>
+<h1>les commandes validés du zone :{{zoneOne.nom_zone}}</h1>
 <div class="mt-5">
   <table class="table table-sm">
     <thead>
@@ -21,7 +21,7 @@
         <td class="col-2"></td>
         <td class="col-2 "></td>
         <td class="col-1  d-flex flex-row">
-          <input (click)="checboxx()" #c (click)="getObjetComd(c,com)" type="checkbox" value="">
+          <input (click)="terminerCommandePut(com)" (click)="checboxx()" #c (click)="getObjetComd(c,com)" type="checkbox" value="">
         </td>
       </tr>
     </tbody>
@@ -30,24 +30,16 @@
 
 <div class="coontainer" *ngIf="tabLivrai.length > 0">
   <button [disabled]="checbox" (click)="selectt()" class="btn btn-primary">selectinner un livreur</button>
-  <!-- <div *ngFor="let livr of livreur" >
-    <span> {{livr.nom}}</span><span>{{livr.matricule}}</span><input  (input)="getObjetLivreur(input)" #input value="{{livr.id}}" type="radio" name="livr">
-  </div> -->
+  <!-- [disabled]="select" -->
 
   <select [disabled]="select" (click)="test()" class="form-select container col-4" aria-label="Default select example"
     (change)="getObjetLivreur($event)">
     <option selected disabled value="">--selectinner un livreur--</option>
-    <option *ngFor="let livr of tabL" name="livr" [value]="livr.id">
-      {{livr.nom}}--{{livr.matricule}}--{{livr.email}}
+    <option #a *ngFor="let livr of tabL" name="livr" [value]="livr.id">
+      {{livr.nom}}--{{livr.etatLiv}}-{{livr.matricule}}--{{livr.email}}
     </option>
   </select>
-  <button [disabled]="livrer" class="btn btn-success" (click)="sendLivraison()">ajouter livraison</button>
-  <!-- <select class="form-select"  aria-label="Default select example" [ngModel]="liv">
-    <option selected disabled value="">--selectinner un livreur--</option>
-    <option #l (click)="getObjetLivreur(l)" name="livr"  value="{{livr.id}}" *ngFor="let livr of livreur">
-      {{livr.nom}}--{{livr.matricule}}--{{livr.email}}
-    </option>
-  </select> -->
+  <button [routerLink]="['/admin/livraisons']" [disabled]="livrer" class="btn btn-success" (click)="sendLivraison()">ajouter livraison</button>
 </div>
 
 <!-- <div class="form-check form-check-inline" *ngFor="let com of zoneOne.commandes">

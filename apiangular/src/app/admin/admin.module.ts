@@ -10,7 +10,9 @@ import { DetaiLivraisonsComponent } from './livraisons/detai-livraisons/detai-li
 import { DetaiLivreurComponent } from './livraisons/detai-livreur/detai-livreur.component';
 import { NewProduitsComponent } from './produits/new-produits/new-produits.component';
 import { ZoneLivraisonComponent } from './commandes/zone-livraison/zone-livraison.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EtatLivreurComponent } from './commandes/zone-livraison/etat-livreur/etat-livreur.component';
 
 
 @NgModule({
@@ -23,12 +25,15 @@ import { FormsModule } from '@angular/forms';
     DetaiLivraisonsComponent,
     DetaiLivreurComponent,
     NewProduitsComponent,
-    ZoneLivraisonComponent
+    ZoneLivraisonComponent,
+    EtatLivreurComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

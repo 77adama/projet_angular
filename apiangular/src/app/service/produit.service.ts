@@ -215,6 +215,10 @@ UpdateCommand(id:number,etat:string){
   this.http.put<any>('http://localhost:8000/api/commandes'+'/'+id,{etat: etat}).subscribe();
   location.reload();
 }
+UpdateLivraison(id:number,etat:string){
+  this.http.put<any>('http://localhost:8000/api/livraisons'+'/'+id,{etat: etat}).subscribe();
+  // location.reload();
+}
 //  This fileReplacements is used to replaced by the
 tabComd:any[]=[]
  ajoutComd(id:number){
@@ -232,12 +236,20 @@ retirComd(id:number){
 //  /////////////////////////////////////liste livraison///////////////////////////////////////////
 
 urlListeLivraison="http://localhost:8000/api/livraisons"
-getLivraisonAll(): Observable<Livraison> {
+getLivraisonAll(): Observable<any> {
  
   return this.http.get<Livraison>(this.urlListeLivraison);
+}
+getLivraisonOne(id:number): Observable<any> {
+ 
+  return this.http.get<any>("http://localhost:8000/api/livraisons/"+id);
 }
 
 findOneLivreur(id:number):Observable<any>{
   return this.http.get<any>("http://localhost:8000/api/livreurs/"+id);
+}
+
+findLivreurAll():Observable<any>{
+  return this.http.get<any>("http://localhost:8000/api/livreurs");
 }
 }

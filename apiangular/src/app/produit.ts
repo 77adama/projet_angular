@@ -8,5 +8,5 @@ export interface Produit{
     produits:Menu[],
     quantite:number
     produit:Burger[],
-
+    type:string,
 }

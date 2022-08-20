@@ -20,12 +20,30 @@ export class CommandesComponent implements OnInit {
 
   constructor(private prser: ProduitService,private http: HttpClient) { }
 
+  tabC:any[]=[]
+  tabZ:any[]=[]
   ngOnInit(): void {
 
     this.prser.getCommandAll().subscribe(
       comand=>{
+
+        // console.log(comand);
+        comand.forEach((element: any) => {
+          if(element.etat=="en cours"){
+            this.tabC.push(element);
+          }
+          
+          
+        });
+
         this.CommandALL =comand
      
+       this.CommandALL.forEach((element: any) => {
+            if(element.etat=="en cours"){
+              this.tabZ.push(element);
+            };
+            
+       });;
        
         
       });

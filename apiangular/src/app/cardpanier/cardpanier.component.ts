@@ -157,7 +157,7 @@ structureCommand(){
       // "quantite": element.quantity,
       // "produits": "/api/produits/"+element.id
       "quantite": element.quantity,
-      "prix": 7000,
+      "prix": 2000,
       "produit": [
         "/api/produits/"+element.id
       ]
@@ -179,7 +179,7 @@ sendCommande(){
     
     "produits":this.structureCommand(),
     "client": "/api/clients/27",
-    "timeAt": "2022-08-16T10:30:11.426Z",
+    "timeAt": "2022-08-18T11:55:27.407Z",
     "etat": "en cours"
   }
   ).subscribe(data => {
@@ -224,7 +224,7 @@ sendCommande(){
       "zones": [
         "/api/zones/"+this.idd
       ],
-      "timeAt": "2022-08-16T10:30:11.426Z",
+      "timeAt": "2022-08-18T11:55:27.407Z",
       "etat": "en cours"
     }
     ).subscribe(data => {

@@ -1,9 +1,14 @@
 
+<div class="search-hero">
+  <input class="form-control" type="date" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a product by id or name or price">
+</div>
+
 <table class="table table-sm">
     <thead>
       <tr>
         <th scope="col">les commandes du client   {{CommandClient.nom}}</th>
         <th scope="col">numero</th>
+        <th scope="col">date</th>
         <th scope="col">etat</th>
         <th scope="col">nom du produit</th>
         <th scope="col">prix</th>
@@ -11,10 +16,11 @@
       </tr>
       
     </thead>
-    <tbody *ngFor="let command of CommandClient.commandes">
+    <tbody *ngFor="let command of CommandClient.commandes  | filter:searchText ">
       <tr>
         <th></th>
         <td>{{command.id}}</td>
+        <td>{{command.timeAt| date: 'le dd MM YYYY' }}</td>
         <td >{{command.etat}}</td>
         <td *ngFor="let comP of command.produits">  
           <div *ngFor="let comPr of comP.produit">
@@ -32,8 +38,8 @@
         </td>
         <td>
                 <button [routerLink]="['/detailComd',command.id]" class="btn btn-outline-primary btn-sm">Détails</button>
-                <button (click)="sendCommandePut(command)" (click)="annulerr(command)"  class="btn btn-warning btn-sm">Annuler</button>
-                <button class="btn btn-danger btn-sm">sup</button>
+                <button *ngIf="command.etat!='valider'&&command.etat!='encours livraison'&&command.etat!='payer'" (click)="sendCommandePut(command)" (click)="annulerr(command)"  class="btn btn-warning btn-sm">Annuler</button>
+                <!-- <button class="btn btn-danger btn-sm">sup</button> -->
         </td>
       </tr>
           

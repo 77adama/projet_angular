@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Commande } from 'src/app/commande';
+import { Livreur } from 'src/app/livreur';
 import { ProduitService } from 'src/app/service/produit.service';
 
 @Component({
@@ -98,6 +100,7 @@ export class ZoneLivraisonComponent implements OnInit {
   public getObjetLivreur(event:any): void {  //event will give you full breif of action
     this.idLiv = event.target.value;
     
+   console.log(this.idLiv);
    
     
   }
@@ -153,4 +156,53 @@ export class ZoneLivraisonComponent implements OnInit {
     checboxx(){
       this.checbox = false
     }
+
+    terminerCommandePut(comm:Commande){
+
+      this.http.put<any>('http://localhost:8000/api/commandes/'+comm.id, 
+      {
+        
+        "etat": "encours livraison",
+        
+      }
+      ).subscribe(data => {
+       
+           
+        this.postId = data.id;
+      })
+      
+          
+           this.postId;
+          
+           
+      }
+    
+      // annulerr(comm:Commande){
+      //   comm.etat="annuler" 
+      // }
+
+      livreurPut(liv:Livreur){
+
+        this.http.put<any>('http://localhost:8000/api/livreurs/'+liv.id, 
+        {
+          
+          "etatLiv": "occupé",
+          
+        }
+        ).subscribe(data => {
+         
+             
+          this.postId = data.id;
+        })
+        
+            
+             this.postId;
+            
+             
+        }
+
+        ocuuperLivreurPut(id:number,etat:string){
+          this.http.put<any>('http://localhost:8000/api/livreurs'+'/'+id,{etat: etat}).subscribe();
+          //  location.reload();
+        }
 }

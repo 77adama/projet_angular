@@ -1,1 +1,52 @@
-<p>detai-livraisons works!</p>
+<div class="d-flex justify-content-center container "  *ngFor="let livC of livraisonOne.commandes" >
+    <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
+       
+        <div class="about-product text-center mt-2">
+            <h4>zoneLivraison:{{livraisonOne.zone.nom_zone}}</h4>
+            <img src="https://media.istockphoto.com/id/1344001598/fr/photo/d%C3%A9licieux-hamburger-sur-une-table-en-bois-avec-un-fond-brun-fonc%C3%A9-derri%C3%A8re-concept-de.webp?s=612x612&w=is&k=20&c=vMPqN6rzwTwMLJWYkJQuG-PnGn_VxKpIyLG1fLOPEXQ=" width="300">
+            <div>
+                <h4>etat:{{livC.etat}}</h4>
+              prix livraison:  {{livraisonOne.zone.prix_livr}}Frc
+                <div class="d-flex justify-content-between">
+                 <button *ngIf="livC.etat=='encours livraison'||livC.etat=='annuler'" (click)="sendanulerLivPut(livC.id,'annuler')" (click)="annulerr(livC)" class="btn btn-warning btn-sm">annuler</button>
+                <button *ngIf="livC.etat=='encours livraison'||livC.etat=='payer'" (click)="sendpayerLivPut(livC.id,'payer')" (click)="payerr(livC)" class="btn btn-outline-primary btn-sm">payer</button>
+                 </div>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- -   ---------------------------------------------------------------- -->
+<!-- <div class="container mt-5 ml-5">
+    <table class="table table-bordeless">
+        <tr class="bg-success">
+            <th>N°</th>
+            <th>etat</th>
+            <th>zoneLivraison</th>
+            <th>prixLivraison</th>
+            <th class="text-center">parametre</th>
+            
+    
+        </tr>
+     
+    
+                
+                <tr *ngFor="let livC of livraisonOne.commandes">
+                <td>{{livraisonOne.id}}</td>
+                
+                <td >
+                    {{livC.etat}}
+                </td>
+               <td>{{livraisonOne.zone.nom_zone}}</td>
+               <td>{{livraisonOne.zone.prix_livr}}</td>
+                <td  class="text-center">
+                 <button *ngIf="livC.etat=='encours livraison'||livC.etat=='annuler'" (click)="sendanulerLivPut(livC.id,'annuler')" (click)="annulerr(livC)" class="btn btn-warning btn-sm">annuler</button>
+                 <button *ngIf="livC.etat=='encours livraison'||livC.etat=='payer'" (click)="sendpayerLivPut(livC.id,'payer')" (click)="payerr(livC)" class="btn btn-outline-primary btn-sm">payer</button>
+            </td>
+                </tr>
+                    
+         
+        
+            
+          
+    </table> 
+    </div> -->
